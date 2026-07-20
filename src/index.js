@@ -75,10 +75,35 @@ function Menu() {
   return (
     <main className="menu">
       <h2> Our Menu</h2>
-      <Pizza />
-      <Pizza />
-      <Pizza />
+      {/* <Pizza
+        name="Pizza Salamino"
+        ingredients="Tomato, mozarella, and pepperoni"
+        photoName="pizzas/salamino.jpg"
+        price="10" */}
+      {/* /> */}
+      <div className="pizzas">
+        <Pizza pizzaData={pizzaData[0]} />
+        <Pizza pizzaData={pizzaData[1]} />
+        <Pizza pizzaData={pizzaData[2]} />
+        <Pizza pizzaData={pizzaData[3]} />
+        <Pizza pizzaData={pizzaData[4]} />
+        <Pizza pizzaData={pizzaData[5]} />
+      </div>
     </main>
+  );
+}
+
+function Pizza({ pizzaData }) {
+  console.log(pizzaData);
+  return (
+    <div className="pizza">
+      <img src={pizzaData.photoName} alt="{pizzaData.name}"></img>
+      <div>
+        <h3>{pizzaData.name}</h3>
+        <p>{pizzaData.ingredients}</p>
+        <span>Price: ${pizzaData.price}</span>
+      </div>
+    </div>
   );
 }
 
@@ -97,15 +122,7 @@ function Footer() {
   );
   //   return React.createElement("footer", null, "We are Currently Open!!");
 }
-function Pizza() {
-  return (
-    <div>
-      <img src="pizzas/salamino.jpg" alt="Pizza Salamino"></img>
-      <h3>Pizza Salamino</h3>
-      <p>Tomato, mozarella, and pepperoni</p>
-    </div>
-  );
-}
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
